@@ -1,3 +1,6 @@
+# PowerDNS Provider
+Forked to provide compatibility with [Servfail](https://servfail.network/) by allowing the nameserver in the PowerDNS requests to be configured.
+
 Terraform Provider
 ==================
 

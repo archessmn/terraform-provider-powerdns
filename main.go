@@ -1,8 +1,8 @@
 package main
 
 import (
+	"github.com/archessmn/terraform-provider-powerdns/powerdns"
 	"github.com/hashicorp/terraform-plugin-sdk/plugin"
-	"github.com/terraform-providers/terraform-provider-powerdns/powerdns"
 )
 
 func main() {

@@ -1,4 +1,4 @@
-module github.com/terraform-providers/terraform-provider-powerdns
+module github.com/archessmn/terraform-provider-powerdns
 
 go 1.12
 
