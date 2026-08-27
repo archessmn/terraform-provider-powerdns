@@ -1,6 +1,6 @@
 module github.com/archessmn/terraform-provider-powerdns
 
-go 1.12
+go 1.26.5
 
 require (
 	github.com/coocood/freecache v1.1.1
