@@ -1,19 +1,13 @@
 # PowerDNS Provider
 Forked to provide compatibility with [Servfail](https://servfail.network/) by allowing the nameserver in the PowerDNS requests to be configured.
 
-Terraform Provider
+OpenTofu / Terraform Provider
 ==================
-
-- Website: https://www.terraform.io
-- [![Gitter chat](https://badges.gitter.im/hashicorp-terraform/Lobby.png)](https://gitter.im/hashicorp-terraform/Lobby)
-- Mailing list: [Google Groups](http://groups.google.com/group/terraform-tool)
-
-<img src="https://cdn.rawgit.com/hashicorp/terraform-website/master/content/source/assets/images/logo-hashicorp.svg" width="600px">
 
 Requirements
 ------------
 
--	[Terraform](https://www.terraform.io/downloads.html) 0.12.x
+- [OpenTofu](https://opentofu.org/) **OR** [Terraform](https://www.terraform.io/downloads.html) 0.12.x
 -	[Go](https://golang.org/doc/install) >=1.16 (to build the provider plugin)
 -	[Goreleaser](https://goreleaser.com) >=v0.157.0 (for releasing provider plugin)
 
@@ -26,18 +20,19 @@ Using the Provider (TF 0.13+)
 terraform {
   required_providers {
     powerdns = {
-      source = "pan-net/powerdns"
+      source = "archessmn/powerdns"
     }
   }
 }
 
 provider "powerdns" {
-  server_url = "https://host:port/"  # or use PDNS_SERVER_URL variable
-  api_key    = "secret"              # or use PDNS_API_KEY variable
+  server_url = "https://host:port/"   # or use PDNS_SERVER_URL variable
+  nameserver = "neri.ns.servfail.ch." # or use PDNS_NAMESERVER variable
+  api_key    = "secret"               # or use PDNS_API_KEY variable
 }
 ```
 
-For detailed usage see [provider's documentation page](https://www.terraform.io/docs/providers/powerdns/index.html)
+For detailed usage see [provider's documentation page](https://search.opentofu.org/provider/archessmn/powerdns/latest)
 
 Building The Provider
 ---------------------
@@ -45,7 +40,7 @@ Building The Provider
 Clone the provider repository:
 
 ```sh
-$ git clone git@github.com:terraform-providers/terraform-provider-powerdns
+$ git clone git@github.com:archessmn/terraform-provider-powerdns
 ```
 
 Navigate to repository directory:
@@ -67,6 +62,8 @@ Developing the Provider
 
 If you wish to work on the provider, you'll first need [Go](http://www.golang.org) installed on your machine (version 1.11+ is *recommended*).
 You'll also need to have `$GOPATH/bin` in your `$PATH`.
+
+You can also use the provided Nix flake with direnv (if you have both Nix and direnv installed), by running `direnv allow` in the project's root directory.
 
 Make sure the changes you performed pass linting:
 
